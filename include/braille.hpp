@@ -331,8 +331,8 @@ public:
         rct = rct.sorted();
         Rect block_rect{
             { rct.p1.x/cell_cols, rct.p1.y/cell_rows },
-            { utils::max(1l, rct.p2.x/cell_cols + (rct.p2.x%cell_cols)),
-              utils::max(1l, rct.p2.y/cell_rows + (rct.p2.y%cell_rows != 0)) }
+            { utils::max(1, rct.p2.x/cell_cols + (rct.p2.x%cell_cols)),
+              utils::max(1, rct.p2.y/cell_rows + (rct.p2.y%cell_rows != 0)) }
         };
 
         rct.p2 += Point(1, 1);
@@ -571,8 +571,8 @@ BrailleCanvas& BrailleCanvas::stroke(Color const& color, Rect rct, Fn&& fn, Term
     rct = rct.clamp(size());
     Rect block_rect{
         { rct.p1.x/cell_cols, rct.p1.y/cell_rows },
-        { utils::max(1l, rct.p2.x/cell_cols + (rct.p2.x%cell_cols)),
-          utils::max(1l, rct.p2.y/cell_rows + (rct.p2.y%cell_rows != 0)) }
+        { utils::max(1, rct.p2.x/cell_cols + (rct.p2.x%cell_cols)),
+          utils::max(1, rct.p2.y/cell_rows + (rct.p2.y%cell_rows != 0)) }
     };
 
     for (auto ln = block_rect.p1.y; ln < block_rect.p2.y; ++ln) {
@@ -612,8 +612,8 @@ BrailleCanvas& BrailleCanvas::fill(Color const& color, Rect rct, Fn&& fn, Termin
     rct = rct.clamp(size());
     Rect block_rect{
         { rct.p1.x/cell_cols, rct.p1.y/cell_rows },
-        { utils::max(1l, rct.p2.x/cell_cols + (rct.p2.x%cell_cols)),
-          utils::max(1l, rct.p2.y/cell_rows + (rct.p2.y%cell_rows != 0)) }
+        { utils::max(1, rct.p2.x/cell_cols + (rct.p2.x%cell_cols)),
+          utils::max(1, rct.p2.y/cell_rows + (rct.p2.y%cell_rows != 0)) }
     };
 
     auto set = [rct,&fn](Point p) {
